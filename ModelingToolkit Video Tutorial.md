@@ -1,0 +1,49 @@
+- by Chris Rackauckas and Yingbo Ma
+	- [Simulating Big Models in Julia with ModelingToolkit | Workshop | JuliaCon 2021 (youtube.com)](https://www.youtube.com/watch?v=HEVOgSLBzWA&t=478s)
+- # Outline
+	- ![](https://i.imgur.com/LZoNKw6.png){:height 372, :width 886}
+-
+- # 1. Overview of MTK
+	- What is MTK?
+		- **symbolic modeling**
+			- ![](https://i.imgur.com/O27MGBw.png)
+			- still developing
+			- a core part of the SciML ecosystem
+		- ModelingToolkit models automatically transformed to machine learning hybrids
+			- faster than dymola
+			- an example of modeling vapor compression cycle
+				- ![](https://i.imgur.com/8cLc01Z.png){:height 348, :width 794}
+	- ## Key ideas of MKT:
+		- Help automatically optimize codes for ODE solver
+			- MKT helps **transform** (build) your ODE system into a more easier solving one
+			- so you can write your ODE **flexibly**, and don't have to interpret yourself
+	- ## What kind of transformation can MKT do?
+		- ![](https://i.imgur.com/qu8qZyU.png){:height 375, :width 226}
+			- **`structual_simplify`** (The God of Transforms)
+				- eg. The following 5 equations are rebuilt to 1 equation
+					- ![](https://i.imgur.com/BFUqPwF.png){:height 592, :width 534}
+				- `generate_raw_moment_eqs`
+					- ![](https://i.imgur.com/9QYdHDt.png){:height 314, :width 570}
+				- `ode_order_lowering` (引入中间变量，把n阶微分方程变成n个一阶微分方程)
+					- ![](https://i.imgur.com/2uVLGeB.png){:height 348, :width 557}
+	- MTK is fed by a growing ecosystem of DSLs including Catalyst.jl
+		- ![](https://i.imgur.com/qquHbTQ.png){:height 724, :width 855}
+	- ## MKT system example
+		- linear, nonlinear, differential, unified partial differential, galactic optimization, quadrature
+			- ![](https://i.imgur.com/QF6StT2.png)
+		- NolinearProblem
+			- ![](https://i.imgur.com/AOXdD0W.png)
+		- PDE
+			- ![](https://i.imgur.com/4PUnlas.png){:height 382, :width 855}
+			-
+-
+- # 2. Introduction to Symbolics.jl
+	- Defining symbolic parameters, variables and equations
+		- ![](https://i.imgur.com/pHVY9JQ.png){:height 476, :width 838}
+	- [[Symbolics basic usage]]
+-
+- # 3. ODE Modeling of ModelingToolkit
+	- [[ModelingToolkit ODE example]]
+-
+-
+- id:: 66fda745-bd64-4df1-b7cc-b1795a18722e
